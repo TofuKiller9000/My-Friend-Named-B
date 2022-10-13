@@ -1,0 +1,4 @@
+Completed Tickets: 
+
+--Inventory System with Stackable Items
+--Interactable Items with Prompts

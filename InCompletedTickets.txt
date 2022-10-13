@@ -1,0 +1,9 @@
+Incompleted Tickets
+
+--Fully merged intergrated Inventory AND Interactable systems
+--Combining Items
+--Win Conditions
+--Implementing B's "in-game" game (Pong)
+--Implementing B's Cheating
+--Dialogue Tree
+--Finalize & Implement Assets
