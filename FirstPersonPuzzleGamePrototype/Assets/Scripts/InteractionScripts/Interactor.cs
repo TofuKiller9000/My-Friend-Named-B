@@ -8,7 +8,7 @@ public class Interactor : MonoBehaviour
     //public InventoryItemData ItemData;
     //public InventoryHolder tempInventory;
 
-    public InventoryHolder tempInventory; 
+    //public InventoryHolder myInventory; 
     [SerializeField] private Transform _interactionPoint;
     [SerializeField] private float _interactionPointRadius = 0.5f;
     [SerializeField] private LayerMask _interactableMask;
@@ -29,7 +29,6 @@ public class Interactor : MonoBehaviour
             if(interactable != null && Keyboard.current.eKey.wasPressedThisFrame) //using the new input system from UnityEngine.InputSystem
             {
                 interactable.Interact(this);
-                
             }
         }
     }
