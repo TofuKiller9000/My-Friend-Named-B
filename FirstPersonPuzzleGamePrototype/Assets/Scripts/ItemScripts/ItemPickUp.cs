@@ -48,7 +48,7 @@ public class ItemPickUp : MonoBehaviour
                 if (tempInventory.InventorySystem.AddToInventory(ItemData, 1))
                 {
                     //Destroy(this.gameObject);
-                    //instruction.SetActive(false);
+                   // instruction.SetActive(false);
                 }
             }
         }
