@@ -61,19 +61,19 @@ public class InventorySystem
 
         invSlot = InventorySlots.Where(i => i.ItemData == itemToAdd).ToList(); //using LINQ, where our item.itemdata is equal to the item we want to add. 
                                                                                //This checks all of our inventory slots. then it creates a list of inventoryslots and fill it where the invSlot.data = itemToAdd and put that into a list
-        Debug.Log(invSlot.Count);
+        //Debug.Log(invSlot.Count);
         if(invSlot.Count == 0) { return false; }
         else if(invSlot.Count > 0) { return true;  }
-        return false; 
+        //return false; 
         //return invSlot == null ? false : true; 
-        //return invSlot.Count > 1 ? true : false; //if the invSlot.Count is greater than 1, return true. otherwise, we do not have that item, and thus return false
+        return invSlot.Count > 1 ? true : false; //if the invSlot.Count is greater than 1, return true. otherwise, we do not have that item, and thus return false
     }
 
     public bool ContainsItem(InventoryItemData itemToAdd)
     {
         List<InventorySlot> invSlot = InventorySlots.Where(i => i.ItemData == itemToAdd).ToList(); //using LINQ, where our item.itemdata is equal to the item we want to add. 
                                                                                //This checks all of our inventory slots. then it creates a list of inventoryslots and fill it where the invSlot.data = itemToAdd and put that into a list
-        Debug.Log(invSlot.Count);
+        //Debug.Log(invSlot.Count);
         return invSlot == null ? false : true;
         // return invSlot.Count > 1 ? true : false; //if the invSlot.Count is greater than 1, return true. otherwise, we do not have that item, and thus return false
     }

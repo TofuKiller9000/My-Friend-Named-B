@@ -7,6 +7,8 @@ public interface InterfaceInteractable
     public string InteractionPrompt { get;  }
     public InventoryItemData keyItem { get;  }
 
+   // public InventorySlot keyItemSlot { get;  }
+
     //public int ID; //ID number 
     public bool Interact(Interactor interactor);
 }

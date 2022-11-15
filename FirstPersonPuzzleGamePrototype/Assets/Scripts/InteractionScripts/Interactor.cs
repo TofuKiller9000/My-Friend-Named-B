@@ -12,10 +12,12 @@ public class Interactor : MonoBehaviour
     [SerializeField] private Transform _interactionPoint;
     [SerializeField] private float _interactionPointRadius = 0.5f;
     [SerializeField] private LayerMask _interactableMask;
+    [SerializeField] private InteractionPromptUI _interactionPromptUI; 
 
     private readonly Collider[] _colliders = new Collider[3];
     [SerializeField] private int _numFound; //number of colliders we've actually found, make serialized for debugging
 
+    private InterfaceInteractable _interactable; 
 
     private void Update()
     {
@@ -25,11 +27,31 @@ public class Interactor : MonoBehaviour
                                                  //center of the sphere      //radius of the sphere   //the buffer(3)   //a layer mask which defines which layers of collider to include in the query
         if(_numFound > 0)
         {
-            var interactable = _colliders[0].GetComponent<InterfaceInteractable>();
-            if(interactable != null && Keyboard.current.eKey.wasPressedThisFrame) //using the new input system from UnityEngine.InputSystem
+            _interactable = _colliders[0].GetComponent<InterfaceInteractable>();
+
+
+            if(_interactable != null)
             {
-                interactable.Interact(this);
+                //Debug.Log("Interactable is not null");
+                if (!_interactionPromptUI.IsDisplayed)
+                {
+                    _interactionPromptUI.SetUp(_interactable.InteractionPrompt);
+                    //Debug.Log("UI Should be Showing");
+                }
+
+                if (Keyboard.current.eKey.wasPressedThisFrame) //using the new input system from UnityEngine.InputSystem
+                {
+                    
+                    _interactable.Interact(this);
+                }
+
             }
+        }
+        else
+        {
+           if(_interactable != null) { _interactable = null; }
+           if (_interactionPromptUI.IsDisplayed) { _interactionPromptUI.Close(); }
+
         }
     }
 

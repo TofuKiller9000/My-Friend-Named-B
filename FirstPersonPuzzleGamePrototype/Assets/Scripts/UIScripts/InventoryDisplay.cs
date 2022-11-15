@@ -31,6 +31,8 @@ public abstract class InventoryDisplay : MonoBehaviour
     public abstract void AssignSlot(InventorySystem invToDisplay);
 
     //This method is virtual and thus can be overriden in child classes
+
+
     protected virtual void UpdateSlot(InventorySlot updatedSlot)
     {
         foreach (var slot in slotDictionary)
@@ -47,17 +49,27 @@ public abstract class InventoryDisplay : MonoBehaviour
     public void SlotClicked(InventorySlot_UI clickedSlot)
     {
         //clicked slot has an item - mouse doesn't have an item - then pick up that item
-
-        //clicked slot doesn't have an item - mouse does have an item - place the mouse item into the empty slot
-
-        //both slots have an item - 
-
-        if(clickedSlot.AssignedInventorySlot.ItemData != null && mouseInventoryItem.mouseInventoryItem.ItemData == null)
+        if (clickedSlot.AssignedInventorySlot.ItemData != null && mouseInventoryItem.mouseInventoryItem.ItemData == null)
         {
             mouseInventoryItem.UpdateMouseSlot(clickedSlot.AssignedInventorySlot);
             clickedSlot.ClearSlot();
-            return; 
+            return;
         }
+
+
+        //clicked slot doesn't have an item - mouse does have an item - place the mouse item into the empty slot
+
+        if(clickedSlot.AssignedInventorySlot.ItemData == null && mouseInventoryItem.mouseInventoryItem.ItemData != null)
+        {
+            clickedSlot.AssignedInventorySlot.AssignItem(mouseInventoryItem.mouseInventoryItem);
+            clickedSlot.UpdateUISlot();
+
+            mouseInventoryItem.ClearSlot();
+        }
+
+        //both slots have an item - 
+
+
         Debug.Log("Slot has been clicked");
     }
 }
