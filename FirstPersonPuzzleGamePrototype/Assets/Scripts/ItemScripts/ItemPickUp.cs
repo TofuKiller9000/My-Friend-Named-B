@@ -23,7 +23,7 @@ public class ItemPickUp : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //should I have done this with raycasting? yes. yes I should have. But to be fair, didn't know that actually existed. Probably will add that in the next iteration because this technically works
+       
         instruction.SetActive(true);
         action = true;  
         var inventory = other.transform.GetComponent<InventoryHolder>(); //this is looking for an inventory holder of the thing that it hit
