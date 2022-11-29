@@ -10,9 +10,10 @@ public class Interactor : MonoBehaviour
 
     //public InventoryHolder myInventory; 
     [SerializeField] private Transform _interactionPoint;
-    [SerializeField] private float _interactionPointRadius = 0.5f;
+    [SerializeField] private float _interactionPointRadius = .75f;
     [SerializeField] private LayerMask _interactableMask;
-    [SerializeField] private InteractionPromptUI _interactionPromptUI; 
+    [SerializeField] private InteractionPromptUI _interactionPromptUI;
+    [SerializeField] private DescriptionPromptUI _descriptionPromptUI;
 
     private readonly Collider[] _colliders = new Collider[3];
     [SerializeField] private int _numFound; //number of colliders we've actually found, make serialized for debugging

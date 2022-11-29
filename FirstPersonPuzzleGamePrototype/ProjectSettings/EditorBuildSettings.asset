@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PracticeScene.unity
     guid: 3393e2eb3d719914cb14b055e24a583a
+  - enabled: 1
+    path: Assets/Scenes/MyFriendNamedB/Bedroom.unity
+    guid: 92d8963c666c6d540b07f62511fa614b
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7,
       type: 2}
