@@ -6,6 +6,7 @@ public class KeyItems : MonoBehaviour, InterfaceInteractable
 {
     [SerializeField] private string _prompt;
     [SerializeField] private InventoryItemData item;
+    [SerializeField] private DescriptionPromptUI description;
 
     //blic List<InventorySlot> InventorySlots => tempIventorySlots; //this is our public getter that we use to point to our prviate list
 
@@ -31,6 +32,7 @@ public class KeyItems : MonoBehaviour, InterfaceInteractable
         if (Input.GetKeyDown(KeyCode.E) && tempInventory)
         {
             tempInventory.InventorySystem.AddToInventory(keyItem, 1);
+            description.UpdateDescription(keyItem.description);
             Debug.Log("You picked up the item");
             Destroy(this.gameObject);
             return true;
