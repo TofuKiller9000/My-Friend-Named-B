@@ -70,6 +70,6 @@ public abstract class InventoryDisplay : MonoBehaviour
         //both slots have an item - 
 
 
-        Debug.Log("Slot has been clicked");
+        //Debug.Log("Slot has been clicked");
     }
 }

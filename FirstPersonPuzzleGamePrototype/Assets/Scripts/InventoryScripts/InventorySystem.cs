@@ -29,6 +29,7 @@ public class InventorySystem
 
     public bool AddToInventory(InventoryItemData itemToAdd, int amountToAdd)
     {
+        
 
         if(ContainsItem(itemToAdd, out List<InventorySlot> invSlot)) //checks whether each item exists in the inventory
         {
@@ -52,7 +53,6 @@ public class InventorySystem
         }
         return false; //this is triggered if we don't already have an item slot existing for it, and if we don't have a free slot
     }
-
 
     //takes in the item that we want to add, and passes out the inventorySlot that the item is contained if it exists
     //do any of our slots have the item?

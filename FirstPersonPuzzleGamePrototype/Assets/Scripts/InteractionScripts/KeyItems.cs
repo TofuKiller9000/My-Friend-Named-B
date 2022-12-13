@@ -12,6 +12,8 @@ public class KeyItems : MonoBehaviour, InterfaceInteractable
 
     public InventoryHolder tempInventory;
 
+    public AudioSource itemPickUpSound; 
+
     public string InteractionPrompt => _prompt;
 
     public InventoryItemData keyItem => item;
@@ -31,9 +33,10 @@ public class KeyItems : MonoBehaviour, InterfaceInteractable
 
         if (Input.GetKeyDown(KeyCode.E) && tempInventory)
         {
+            itemPickUpSound.Play();
             tempInventory.InventorySystem.AddToInventory(keyItem, 1);
             description.UpdateDescription(keyItem.description);
-            Debug.Log("You picked up the item");
+            //Debug.Log("You picked up the item");
             Destroy(this.gameObject);
             return true;
 
