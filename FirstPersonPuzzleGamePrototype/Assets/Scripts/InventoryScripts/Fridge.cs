@@ -27,12 +27,15 @@ public class Fridge : InventoryHolder, InterfaceInteractable
         if(fridgeOpened)
         {
             fridgeSound.Play();
+            
             OnDynamicInventoryDisplayRequested?.Invoke(inventorySystem);
             return true;
         }
         else
         {
-            for(int i = 0; i < storedItems.Length; i++)
+            description.UpdateDescription("A mostly empty fridge save for a few moldy food items. You also notice a block of ice that looks like it has something frozen in the middle.");
+
+            for (int i = 0; i < storedItems.Length; i++)
             {
                 inventorySystem.AddToInventory(storedItems[i], 1);
                 
