@@ -6,7 +6,7 @@ public class Chest : InventoryHolder, InterfaceInteractable
 {
     [SerializeField] private string _prompt;
     [SerializeField] private InventoryItemData item;
-    [SerializeField] private InventorySlot_UI keyItemSlot;
+    [SerializeField] private InventorySlot_UI[] inventorySlots;
     [SerializeField] private DescriptionPromptUI description;
 
     public string InteractionPrompt => _prompt;
@@ -17,7 +17,7 @@ public class Chest : InventoryHolder, InterfaceInteractable
 
     public InventoryItemData keyItem => item;
 
-    public InventorySlot_UI keyitemslot => keyItemSlot;
+    public InventorySlot_UI[] invslots => inventorySlots;
 
     public InventoryItemData storedItem; 
 
@@ -41,7 +41,11 @@ public class Chest : InventoryHolder, InterfaceInteractable
             foreach (var slots in invSlot)
             {
                 slots.ClearSlot();
-                keyitemslot.UpdateUISlot(slots);
+                
+            }
+            for (int i = 0; i < invslots.Length; i++)
+            {
+                invslots[i].UpdateUISlot();
             }
             description.UpdateDescription("You opened the chest!");
             

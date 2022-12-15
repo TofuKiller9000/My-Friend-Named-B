@@ -1,5 +1,0 @@
-GamePlay Demo Videos
-
-This text document contains all links for gameplay demos showcasing current features and bugs for builds
-
-1.0.0 (https://drive.google.com/file/d/1cxFPz2fRC3z9UikTwF8IwlxvQ8bItNco/view?usp=sharing)

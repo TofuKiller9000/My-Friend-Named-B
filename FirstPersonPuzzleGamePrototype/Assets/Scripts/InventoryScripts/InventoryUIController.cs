@@ -34,13 +34,7 @@ public class InventoryUIController : MonoBehaviour
 
     void DisplayInventory(InventorySystem invToDisplay)
     {
-        Debug.Log(Chest.chestOpen);
-        if(Chest.chestOpen == true)
-        {
-            Debug.Log("Open Chest");
-            inventoryPanel.gameObject.SetActive(true); //sets the panel to active
-            inventoryPanel.RefreshDynamicInventory(invToDisplay);
-        }
-
+       inventoryPanel.gameObject.SetActive(true); //sets the panel to active
+       inventoryPanel.RefreshDynamicInventory(invToDisplay);
     }
 }

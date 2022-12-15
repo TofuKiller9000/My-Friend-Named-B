@@ -16,13 +16,19 @@ public class Safe : MonoBehaviour, InterfaceInteractable
 
     public GameObject spawnItem;
 
+    public AudioSource SafeAudio;
+
+    public AudioClip Error;
+
+    public AudioClip Correct; 
+
     public InventoryItemData keyItem => item;
 
     public InventorySlot_UI[] invslots => inventorySlots;
 
     public bool Interact(Interactor interactor)
     {
-
+        SafeAudio = gameObject.GetComponent<AudioSource>();
         var myInventory = interactor.GetComponent<InventoryHolder>();
 
         if (myInventory == null)
@@ -34,6 +40,8 @@ public class Safe : MonoBehaviour, InterfaceInteractable
 
         if (myInventory.InventorySystem.ContainsItem(keyItem, out List<InventorySlot> invSlot))
         {
+            SafeAudio.clip = Correct;
+            SafeAudio.Play();
             spawnItem.SetActive(true);
             anim.SetTrigger("Opened");
             description.UpdateDescription("Pressing 4-2-0-6-9 into the keypad, the safe swings open!");
@@ -56,6 +64,8 @@ public class Safe : MonoBehaviour, InterfaceInteractable
 
         }
 
+        SafeAudio.clip = Error;
+        SafeAudio.Play();
         description.UpdateDescription("You're going to need the code to open this safe.");
         return true;
 
